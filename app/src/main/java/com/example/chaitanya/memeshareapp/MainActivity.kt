@@ -31,28 +31,20 @@ class MainActivity : AppCompatActivity() {
             .create(APIinterface::class.java)
 
         val retrofitdata = retrofitBuilder.getData()
-        println("Hello")
-        Log.d("mAINacT","Hello")
 
         val imageview: ImageView = findViewById(R.id.memeImage)
 
        retrofitdata.enqueue(object : Callback<MemeList> {
 
            override fun onResponse(call: Call<MemeList>, response: Response<MemeList>) {
-               Log.d("onResponding","Success123")
-               //TODO("Not yet implemented")
                val responseBody = response.body()
                val memeBody = responseBody?.memes
-               Log.d("onResponding12345","Success12345")
                val uri= memeBody?.get(0)?.url.toString()
                println(uri)
                Glide.with(this@MainActivity).load(uri).into(imageview)
-
-               Log.d("onResponse","Success")
            }
 
            override fun onFailure(call: Call<MemeList>, t: Throwable) {
-               TODO("Not yet implemented")
                Log.d("onFailure","Failure")
            }
        })
@@ -60,5 +52,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun ShareMeme(view: View) {}
-    fun NextMeme(view: View) {}
+
+    fun NextMeme(view: View) {
+        getMemeData()
+    }
 }
