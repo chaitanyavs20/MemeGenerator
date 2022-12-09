@@ -1,6 +1,6 @@
 package com.example.chaitanya.memeshareapp
 
-data class MemeData(
+data class Meme(
     val author: String,
     val nsfw: Boolean,
     val postLink: String,

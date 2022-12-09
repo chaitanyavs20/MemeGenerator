@@ -8,18 +8,18 @@ import retrofit2.http.GET
 
 interface APIinterface {
 
-    @GET("gimme")
-    fun getData(): Call<MemeData>
+    @GET("gimme/20")
+    fun getData(): Call<MemeList>
 }
 
-object MemeCall{
-    val meme:APIinterface
-    init {
-        val retrofitbuilder = Retrofit.Builder()
-            .baseUrl(Base_Url)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        meme = retrofitbuilder.create(APIinterface::class.java)
-    }
-}
+//object MemeCall{
+//    val meme:APIinterface
+//    init {
+//        val retrofitbuilder = Retrofit.Builder()
+//            .baseUrl(Base_Url)
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//
+//        meme = retrofitbuilder.create(APIinterface::class.java)
+//    }
+//}
